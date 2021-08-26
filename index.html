@@ -1,9 +1,147 @@
+<style>
+    .page {
+        display: flex;
+        height: 80%;
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    #center {
+        margin: auto;
+    }
+    .nav {
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .alignleft {
+        float: left;
+    }
+    .alignright {
+        float: right;
+    }
+
+    #logo {
+        display: block;
+        margin: auto;
+        margin-top: 150px;
+        width: 300px;
+        height: auto;
+
+    }
+
+    #search {
+        font-family: sans-serif;
+        font-size: 10pt;
+        width: 130px;
+        height: 35px;
+        color: gray;
+        border: none;
+        margin: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+    li {
+        display: inline;
+        font-family: sans-serif;
+        font-size: 14px;
+        margin: 5px;
+        vertical-align: middle;
+    }
+    li a {
+        font-size: 12px;
+        color: rgb(68,68,70);
+        text-decoration: none;
+        padding-left: 5px;
+    }
+    li a:hover {
+        text-decoration: underline;
+    }
+
+    ul {
+
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+    }
+    .apps { 
+        width: 15px;
+    }
+
+    #downwards {
+        color:rgb(106, 106, 107);
+    }
+    .sign {
+        background-color: #4285f4;
+        width: 75px;
+        height: 30px;
+        color: azure;
+        font-family: sans-serif;
+        font-size: 10pt;
+        font-weight: 600;
+        border-radius: 4px;
+        border: none;
+    }
+    
+
+    footer {
+        background-color: #f2f2f2;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-width: .5pt;
+        border-style: solid;
+        border-color: rgb(236, 235, 235)
+    }
+    .leftfooter {
+        float: left;
+        padding-left: 20px;
+    }
+    .rightfooter {
+        float: right;
+        padding-right: 20px;
+    }
+
+
+    form {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+
+    }
+    #searchbar {
+        height: 40px;
+        width: 500px;
+        background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png);
+        background-position: 4px 7px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        padding-left: 38px;
+        border: 1px solid #dfe1e5;
+        border-radius: 25px;
+        -webkit-tap-highlight-color: transparent;
+
+    }
+
+    #searchbar:hover {
+        box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+        border-color: rgba(223,225,229,0);
+    }
+
+   
+</style>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
     <title>Google</title>
 </head>
 
@@ -13,29 +151,15 @@
             <nav class="nav">
                 <ul class="alignleft">
 
-                    <li><a
-                            href="https://web.archive.org/web/20191104021941/https://about.google/?fg=1&utm_source=google-US&utm_medium=referral&utm_campaign=hp-header">About</a>
-                    </li>
-                    <li><a
-                            href="https://web.archive.org/web/20191102152135/https://store.google.com/US?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US">Store</a>
-                    </li>
+                    <li><a href="https://web.archive.org/web/20191104021941/https://about.google/?fg=1&utm_source=google-US&utm_medium=referral&utm_campaign=hp-header">About</a></li>
+                    <li><a href="https://web.archive.org/web/20191102152135/https://store.google.com/US?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US">Store</a></li>
                 </ul>
 
                 <ul class="alignright">
-                    <li><a
-                            href="https://web.archive.org/web/20191219105436/https://mail.google.com/mail/?tab=wm&ogbl">Gmail</a>
-                    </li>
-                    <li><a
-                            href="https://web.archive.org/web/20191201014017/https://www.google.com/imghp?hl=en&tab=wi&ogbl">Images</a>
-                    </li>
-                    <li><a
-                            href="https://web.archive.org/web/20191130234759/https://www.google.com/intl/en/about/products?tab=wh"><img
-                                class="apps"
-                                src="data:image/png;base64,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"></a>
-                    </li>
-                    <li><a
-                            href="https://web.archive.org/web/20191130031533/https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"></a><button
-                            class="sign">Sign in</button></li>
+                    <li><a href="https://web.archive.org/web/20191219105436/https://mail.google.com/mail/?tab=wm&ogbl">Gmail</a></li>
+                    <li><a href="https://web.archive.org/web/20191201014017/https://www.google.com/imghp?hl=en&tab=wi&ogbl">Images</a></li>
+                    <li><a href="https://web.archive.org/web/20191130234759/https://www.google.com/intl/en/about/products?tab=wh"><img class="apps" src="data:image/png;base64,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"></a></li>
+                    <li><a href="https://web.archive.org/web/20191130031533/https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"></a><button class="sign">Sign in</button></li>
                 </ul>
             </nav>
         </header>
